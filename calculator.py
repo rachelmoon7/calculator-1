@@ -1,53 +1,46 @@
 """CLI application for a prefix-notation calculator."""
 
-from arithmetic import *
+from arithmetic import (add, subtract, multiply, divide, square, cube,
+                        power, mod, )
 
 
+# Replace this with your code
 while True:
-    user_input = input("Enter your equation > ")
+    user_input = input("What's your equation? > ")
     tokens = user_input.split(" ")
 
-    if "q" in tokens:
-        print("You will exit.")
+    if "q" in tokens: 
         break
 
     elif len(tokens) < 2:
-        print("Not enough inputs.")
+        print("Not full equation.")
         continue
-
+    
     operator = tokens[0]
     num1 = tokens[1]
 
     if len(tokens) < 3:
         num2 = "0"
-
+    
     else:
         num2 = tokens[2]
 
     if len(tokens) > 3:
-        num3 = tokens[3]
+        num3 = token[3]       
 
-    # A place to store the return value of the math function we call,
-    # to give us one clear place where that result is printed.
-    result = None
-
-    if not num1.isdigit() or not num2.isdigit():
-        print("Those aren't numbers!")
+    if type(num1) or type(num2) != int:
+        print("Please enter numbers")
         continue
-
-    # We have to cast each value we pass to an arithmetic function from a
-    # a string into a numeric type. If we use float across the board, all
-    # results will have decimal points, so let's do that for consistency.
 
     elif operator == "+":
         result = add(float(num1), float(num2))
 
     elif operator == "-":
         result = subtract(float(num1), float(num2))
-
+    
     elif operator == "*":
         result = multiply(float(num1), float(num2))
-
+    
     elif operator == "/":
         result = divide(float(num1), float(num2))
 
@@ -73,3 +66,5 @@ while True:
         result = "Please enter an operator followed by two integers."
 
     print(result)
+
+        
